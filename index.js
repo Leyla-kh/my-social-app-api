@@ -18,9 +18,13 @@ dotenv.config();
 
 mongoose.set("strictQuery", true);
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/test")
-  .then(() => console.log("Connected!"));
+mongoose.connect(
+  process.env.MONGO_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to Mongo!");
+  }
+);
 
 // midelwares
 app.use(
