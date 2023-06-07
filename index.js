@@ -12,6 +12,7 @@ const conversationRoute = require("./routes/conversations");
 const commentRoute = require("./routes/comment");
 const multer = require("multer");
 const path = require("path");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -22,6 +23,11 @@ mongoose
   .then(() => console.log("Connected!"));
 
 // midelwares
+app.use(
+  cors({
+    origin: "https://my-social-app-cso6.onrender.com",
+  })
+);
 app.use("/image", express.static(path.join(__dirname, "/public/image")));
 app.use(express.json());
 app.use(helmet());
