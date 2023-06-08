@@ -16,7 +16,7 @@ const cors = require("cors");
 
 dotenv.config();
 
-// mongoose.set("strictQuery", true);
+mongoose.set("strictQuery", true);
 
 mongoose.connect(
   process.env.MONGO_URL,
