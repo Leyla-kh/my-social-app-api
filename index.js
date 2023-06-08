@@ -30,6 +30,7 @@ mongoose.connect(
 app.use(
   cors({
     origin: "https://my-social-app-cso6.onrender.com",
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
 app.use("/image", express.static(path.join(__dirname, "/public/image")));
